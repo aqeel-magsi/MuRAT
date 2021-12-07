@@ -1,5 +1,5 @@
-function image          = ...
-    Murat_image3D(X,Y,Z,V,color,sections,evestaz,x,y,z,name)
+function [image,mVp,xp,yp,zp,Xp,Yp,Zp]          = ...
+    Murat_image3D(X,Y,Z,V,color,sections,evestaz,x,y,z,divi,name)
 % function image          = ...
 %     Murat_image3D(X,Y,Z,V,color,sections,evestaz,x,y,z,name)
 %
@@ -25,7 +25,7 @@ image                   =   figure('Name',name,...
     'NumberTitle','off','Position',[20,400,1200,1000],'visible','off');
 
 stepgXYZ                =   [x(2)-x(1) y(2)-y(1) z(2)-z(1)];
-divi                    =   5;
+%divi                    =   5;
 divix                   =   stepgXYZ(1)/divi;
 diviy                   =   stepgXYZ(2)/divi;
 diviz                   =   stepgXYZ(3)/divi;
@@ -69,9 +69,13 @@ xlabel('WE','FontSize',16,'FontWeight','bold','Color','k')
 ylabel('SN','FontSize',16,'FontWeight','bold','Color','k')
 zlabel('Depth (km)','FontSize',16,'FontWeight','bold','Color','k')
 
-xticks(x); set(gca,'xticklabel',num2str(get(gca,'xtick')','%.2f'))
-yticks(y); set(gca,'yticklabel',num2str(get(gca,'ytick')','%.2f'))
-zticks(z); set(gca,'zticklabel',num2str(get(gca,'ztick')','%.2f'))
+xtick =linspace(x(1),x(end),6);
+ytick =linspace(y(1),y(end),6);
+ztick =linspace(x(1),x(end),6);
+
+xticks(xtick); set(gca,'xticklabel',num2str(get(gca,'xtick')','%.2f'))
+yticks(ytick); set(gca,'yticklabel',num2str(get(gca,'ytick')','%.2f'))
+zticks(ztick); set(gca,'zticklabel',num2str(get(gca,'ztick')','%.2f'))
 axis tight
 
 SetFDefaults();

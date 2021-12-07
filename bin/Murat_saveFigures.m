@@ -16,6 +16,7 @@ saveas(figureName,[Path '_SN'], 'tif');
 view(0,0)
 saveas(figureName,[Path '_WE'], 'tif');
 view(0,90)
+axis equal
 saveas(figureName,[Path '_H'], 'tif');
 close(figureName)
 end
